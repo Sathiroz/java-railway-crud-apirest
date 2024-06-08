@@ -11,8 +11,8 @@ FROM eclipse-temurin:21-jre
 
 ARG PORT
 ENV PORT=${PORT}
-COPY --form=build /app/app.jar
+COPY --form=build /app/app.jar .
 
-RUN useradd runetime
-USER runetime
+RUN useradd runtime
+USER runtime
 ENTRYPOINT ["java", "-Dserver.port=${PORT}", "-jar", "app.jar"]
